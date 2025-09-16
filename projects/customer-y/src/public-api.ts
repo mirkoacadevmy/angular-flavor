@@ -4,8 +4,16 @@
 
 import { EnvironmentProviders, makeEnvironmentProviders } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { routes } from './lib/app.routes';
 
 export function provideCustomer(): EnvironmentProviders {
-  return makeEnvironmentProviders([provideRouter(routes)]);
+  return makeEnvironmentProviders([
+    provideRouter([
+      {
+        path: 'details',
+        loadComponent: () => {
+          return import('./lib/pages/details-page/details-page.component');
+        },
+      },
+    ]),
+  ]);
 }
