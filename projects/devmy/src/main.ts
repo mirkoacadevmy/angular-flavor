@@ -11,7 +11,7 @@ import { App } from './app/app';
 import { routes } from './app/app.routes';
 import { environment } from './environments/environment';
 
-async function providePlannetCustomer(): Promise<EnvironmentProviders> {
+async function provideCustomer(): Promise<EnvironmentProviders> {
   if (environment.customerName) {
     const module = await import(
       `../../${environment.customerName}/src/public-api.ts`
@@ -26,7 +26,7 @@ async function providePlannetCustomer(): Promise<EnvironmentProviders> {
 async function runApplication(): Promise<void> {
   bootstrapApplication(App, {
     providers: [
-      await providePlannetCustomer(),
+      await provideCustomer(),
       provideBrowserGlobalErrorListeners(),
       provideZonelessChangeDetection(),
       provideRouter(routes),
