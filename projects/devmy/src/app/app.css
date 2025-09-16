@@ -1,0 +1,98 @@
+:host {
+  @apply font-inter antialiased;
+}
+
+.title {
+  @apply text-5xl text-gray-900 font-medium leading-none tracking-tight m-0 font-inter-tight;
+}
+
+.title span {
+  @apply text-orange-500;
+}
+
+p {
+  @apply m-0 text-gray-700;
+}
+
+main {
+  @apply w-full min-h-full flex justify-center items-center p-4 relative;
+}
+
+.angular-logo {
+  @apply max-w-36;
+}
+
+.content {
+  @apply flex justify-around w-full max-w-2xl mb-12;
+}
+
+.content h1 {
+  @apply mt-7;
+}
+
+.content p {
+  @apply mt-6;
+}
+
+.divider {
+  @apply w-px bg-red-to-pink-to-purple-vertical mx-2;
+}
+
+.pill-group {
+  @apply flex flex-col items-start flex-wrap gap-5;
+}
+
+.pill {
+  @apply flex items-center px-3 py-1.5 rounded-full border-0 transition-colors duration-300 font-inter text-sm font-medium leading-5 tracking-tight no-underline whitespace-nowrap;
+  background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
+  color: var(--pill-accent);
+  --pill-accent: var(--bright-blue);
+}
+
+.pill:hover {
+  background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
+}
+
+.pill-group .pill:nth-child(6n + 1) {
+  --pill-accent: var(--bright-blue);
+}
+.pill-group .pill:nth-child(6n + 2) {
+  --pill-accent: var(--electric-violet);
+}
+.pill-group .pill:nth-child(6n + 3) {
+  --pill-accent: var(--french-violet);
+}
+
+.pill-group .pill:nth-child(6n + 4),
+.pill-group .pill:nth-child(6n + 5),
+.pill-group .pill:nth-child(6n + 6) {
+  --pill-accent: var(--hot-red);
+}
+
+.pill-group svg {
+  @apply ml-1;
+}
+
+.social-links {
+  @apply flex items-center gap-3 mt-6;
+}
+
+.social-links path {
+  @apply transition-colors duration-300;
+  fill: var(--gray-400);
+}
+
+.social-links a:hover svg path {
+  fill: var(--gray-900);
+}
+
+@media screen and (max-width: 650px) {
+  .content {
+    @apply flex-col w-max;
+  }
+
+  .divider {
+    @apply h-px w-full my-6;
+    background: var(--red-to-pink-to-purple-horizontal-gradient);
+  }
+}

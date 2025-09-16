@@ -3,5 +3,135 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "devmy": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/devmy",
+      "sourceRoot": "projects/devmy/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "projects/devmy/src/main.ts",
+            "tsConfig": "projects/devmy/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/devmy/public"
+              }
+            ],
+            "styles": [
+              "projects/devmy/src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "devmy:build:production"
+            },
+            "development": {
+              "buildTarget": "devmy:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/devmy/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/devmy/public"
+              }
+            ],
+            "styles": [
+              "projects/devmy/src/styles.css"
+            ]
+          }
+        }
+      }
+    },
+    "customer-x": {
+      "projectType": "library",
+      "root": "projects/customer-x",
+      "sourceRoot": "projects/customer-x/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/customer-x/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/customer-x/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/customer-x/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "customer-y": {
+      "projectType": "library",
+      "root": "projects/customer-y",
+      "sourceRoot": "projects/customer-y/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/customer-y/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/customer-y/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/customer-y/tsconfig.spec.json"
+          }
+        }
+      }
+    }
   }
 }

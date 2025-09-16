@@ -6,6 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "format": "pnpm run eslint && pnpm run prettier && pnpm run stylelint",
+    "eslint": "npx eslint \"projects/**/*.{ts,tsx,html}\" --quiet --fix",
+    "prettier": "npx prettier \"projects/**/*.{ts,tsx,html}\" --write",
     "test": "ng test"
   },
   "prettier": {
@@ -26,19 +29,35 @@
     "@angular/forms": "^20.1.0",
     "@angular/platform-browser": "^20.1.0",
     "@angular/router": "^20.1.0",
+    "@tailwindcss/postcss": "^4.1.13",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular/build": "^20.3.1",
     "@angular/cli": "^20.1.1",
     "@angular/compiler-cli": "^20.1.0",
     "@types/jasmine": "~5.1.0",
+    "angular-eslint": "^20.3.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.2.0",
     "jasmine-core": "~5.8.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^20.3.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "prettier-eslint": "^16.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^4.1.13",
     "typescript": "~5.8.2"
   }
 }

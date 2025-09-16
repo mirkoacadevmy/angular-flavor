@@ -1,0 +1,57 @@
+<div
+  class="overflow-hidden mx-auto my-5 max-w-2xl font-sans bg-white rounded-xl shadow-lg"
+>
+  <div class="p-5 text-center text-white bg-orange-500">
+    <h2 class="m-0 text-2xl font-semibold">User Information</h2>
+  </div>
+  <div class="p-6">
+    <div class="flex flex-col gap-4">
+      <div
+        class="flex justify-between items-center py-3 border-b border-gray-200"
+      >
+        <span
+          class="text-sm font-semibold tracking-wider text-gray-600 uppercase"
+        >
+          Name:
+        </span>
+        <span class="text-base font-medium text-gray-800">
+          {{ user.firstName }} {{ user.lastName }}
+        </span>
+      </div>
+      <div
+        class="flex justify-between items-center py-3 border-b border-gray-200"
+      >
+        <span
+          class="text-sm font-semibold tracking-wider text-gray-600 uppercase"
+        >
+          Age:
+        </span>
+        <span class="text-base font-medium text-gray-800">{{ user.age }}</span>
+      </div>
+      <div
+        class="flex justify-between items-center py-3 border-b border-gray-200"
+      >
+        <span
+          class="text-sm font-semibold tracking-wider text-gray-600 uppercase"
+        >
+          Company:
+        </span>
+        <span class="text-base font-medium text-gray-800">
+          {{ user.company }}
+        </span>
+      </div>
+      <div
+        class="flex justify-between items-center py-3 border-b border-gray-200"
+      >
+        <span
+          class="text-sm font-semibold tracking-wider text-gray-600 uppercase"
+        >
+          Job:
+        </span>
+        <span class="text-base font-medium text-gray-800">{{ user.job }}</span>
+      </div>
+
+      <ng-container *libPluggable="this; groupId: 'details-page'" />
+    </div>
+  </div>
+</div>
