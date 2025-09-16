@@ -9,4 +9,3 @@ import { routes } from './lib/app.routes';
 export function provideCustomer(): EnvironmentProviders {
   return makeEnvironmentProviders([provideRouter(routes)]);
 }
-
