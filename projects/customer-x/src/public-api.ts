@@ -2,5 +2,9 @@
  * Public API Surface of customer-x
  */
 
-export * from './lib/components/skills-user-info/skills-user-info.component';
-export * from './lib/customer-x';
+import { EnvironmentProviders, makeEnvironmentProviders } from '@angular/core';
+import { SkillsUserInfoComponent } from './lib/components/skills-user-info/skills-user-info.component';
+
+export function provideCustomer(): EnvironmentProviders {
+  return makeEnvironmentProviders([SkillsUserInfoComponent]);
+}
