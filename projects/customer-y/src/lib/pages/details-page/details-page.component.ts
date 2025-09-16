@@ -1,12 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-
-interface User {
-  firstName: string;
-  lastName: string;
-  age: number;
-  company: string;
-  job: string;
-}
+import { User } from '@devmy/models/user.model';
 
 @Component({
   selector: 'app-details-page',

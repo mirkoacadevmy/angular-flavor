@@ -13,7 +13,9 @@ import { environment } from './environments/environment';
 
 async function providePlannetCustomer(): Promise<EnvironmentProviders> {
   if (environment.customerName) {
-    const module = await import(`../../customer-x/src/public-api`);
+    const module = await import(
+      `../../${environment.customerName}/src/public-api.ts`
+    );
 
     return makeEnvironmentProviders([module.provideCustomer()]);
   }
