@@ -132,6 +132,58 @@
           }
         }
       }
+    },
+    "skills-user-info": {
+      "projectType": "library",
+      "root": "projects/skills-user-info",
+      "sourceRoot": "projects/skills-user-info/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/skills-user-info/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/skills-user-info/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/skills-user-info/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "team-user-info": {
+      "projectType": "library",
+      "root": "projects/team-user-info",
+      "sourceRoot": "projects/team-user-info/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/team-user-info/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/team-user-info/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/team-user-info/tsconfig.spec.json"
+          }
+        }
+      }
     }
   }
 }

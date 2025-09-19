@@ -1,4 +1,4 @@
 export interface Environment {
   production: boolean;
-  customerName?: string;
+  customerName: string[];
 }

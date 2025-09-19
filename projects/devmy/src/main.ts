@@ -11,22 +11,21 @@ import { App } from './app/app';
 import { routes } from './app/app.routes';
 import { environment } from './environments/environment';
 
-async function provideCustomer(): Promise<EnvironmentProviders> {
-  if (environment.customerName) {
-    const module = await import(
-      `../../${environment.customerName}/src/public-api.ts`
-    );
+async function provideModules(): Promise<EnvironmentProviders> {
+  let providers: EnvironmentProviders[] = [];
 
-    return makeEnvironmentProviders([module.provideCustomer()]);
+  for (const customerName of environment.customerName) {
+    const module = await import(`../../${customerName}/src/public-api.ts`);
+    providers = [...providers, module.provideCustomer()];
   }
 
-  return makeEnvironmentProviders([]);
+  return makeEnvironmentProviders(providers);
 }
 
 async function runApplication(): Promise<void> {
   bootstrapApplication(App, {
     providers: [
-      await provideCustomer(),
+      await provideModules(),
       provideBrowserGlobalErrorListeners(),
       provideZonelessChangeDetection(),
       provideRouter(routes),
