@@ -16,10 +16,8 @@
             "browser": "projects/devmy/src/main.ts",
             "tsConfig": "projects/devmy/tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/devmy/public"
-              }
+              "projects/devmy/src/favicon.ico",
+              "projects/devmy/src/assets"
             ],
             "styles": [
               "projects/devmy/src/styles.css"
